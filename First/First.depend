@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1464064416 source:c:\users\arcade\desktop\first\first\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
