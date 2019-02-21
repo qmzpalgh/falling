@@ -22,17 +22,31 @@ double air_density(double altitude)
 
 int main()
 {
+	
+
     double altitude = 100000;
     double mass = 80.0;
     double fg = 0.0;  //force of gravity
-    double v = 0.0;//initial velocity
+    double v = 0;//initial velocity
     double fd = 0.0;  //force of drag
     double a = 0.0;
+	double drag_coefficient = 0.0;
+
+	//Promt user
+	std::cout << "What is the initial velocity:\n" << std::endl;
+	std::cin >> v;
+
+	std::cout << "What is the initial height:\n" << std::endl;
+	std::cin >> altitude;
+
+	std::cout << "What is the objects coefficicient of drag:\n" << std::endl;
+	std::cin >> drag_coefficient;
+
 	std::cout << "Calculating\n" << std::endl;
     int seconds = 0;
     while (altitude > 0.0) {
         fg = Fg(mass, EARTH_MASS, EARTH_RADIUS + altitude);
-        fd = Fd(air_density(altitude), v, 1.0, 0.5);
+        fd = Fd(air_density(altitude), v, 1.0, drag_coefficient);
         a = (fg + fd) / mass;
         altitude += v;
         v += a;
